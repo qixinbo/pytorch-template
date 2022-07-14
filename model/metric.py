@@ -1,20 +1,18 @@
-import torch
+import torchmetrics
+from pytorch_accelerated.callbacks import TrainerCallback
 
+class accuracy(TrainerCallback):
+    def __init__(self):
+        self.accuracy = torchmetrics.Accuracy()
 
-def accuracy(output, target):
-    with torch.no_grad():
-        pred = torch.argmax(output, dim=1)
-        assert pred.shape[0] == len(target)
-        correct = 0
-        correct += torch.sum(pred == target).item()
-    return correct / len(target)
+    def on_training_run_start(self, trainer, **kwargs):
+        self.accuracy.to(trainer.device)
 
+    def on_eval_step_end(self, trainer, batch, batch_output, **kwargs):
+        preds = batch_output["model_outputs"].argmax(dim=-1)
+        self.accuracy.update(preds, batch[1])
 
-def top_k_acc(output, target, k=3):
-    with torch.no_grad():
-        pred = torch.topk(output, k, dim=1)[1]
-        assert pred.shape[0] == len(target)
-        correct = 0
-        for i in range(k):
-            correct += torch.sum(pred[:, i] == target).item()
-    return correct / len(target)
+    def on_eval_epoch_end(self, trainer, **kwargs):
+        trainer.run_history.update_metric("accuracy", self.accuracy.compute().item())
+        trainer.print("accuracy: ", self.accuracy.compute().item())
+        self.accuracy.reset()

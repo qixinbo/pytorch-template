@@ -1,6 +1,7 @@
 torch>=1.1
 torchvision
 accelerate
+torchmetrics
 numpy
 tqdm
 tensorboard>=1.14

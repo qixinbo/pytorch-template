@@ -8,10 +8,9 @@ import model.loss as module_loss
 import model.metric as module_metric
 import model.model as module_arch
 from parse_config import ConfigParser
-# from trainer import Trainer
-from pytorch_accelerated import Trainer
-from utils import prepare_device
 
+from pytorch_accelerated.trainer import Trainer, DEFAULT_CALLBACKS
+from pytorch_accelerated.callbacks import SaveBestModelCallback
 
 def main(config):
     # create a logger
@@ -36,7 +35,12 @@ def main(config):
     trainer = Trainer(
         model,
         loss_func=criterion,
-        optimizer=optimizer
+        optimizer=optimizer,
+        callbacks=[
+            *DEFAULT_CALLBACKS,
+            *metrics,
+            SaveBestModelCallback(save_path = config.save_dir / "best_model.pt")
+        ]
         )
 
     trainer.train(

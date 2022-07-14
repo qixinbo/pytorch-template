@@ -10,10 +10,6 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 logging.basicConfig(level=logging.INFO)
 
-logger.info("----------- Attention-------------")
-logger.info("Since the APIs of pytorch_accelerated are not stable currently, we are using the in-built one")
-logger.info("----------------------------------")
-logger.info("Setting random seeds")
 set_seed(42)
 notebook_launcher = accelerate_notebook_launcher
 
