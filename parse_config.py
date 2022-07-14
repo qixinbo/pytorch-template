@@ -57,9 +57,6 @@ class ConfigParser:
         if not isinstance(args, tuple):
             args = args.parse_args()
 
-        # set cuda devices
-        if args.device is not None:
-            os.environ["CUDA_VISIBLE_DEVICES"] = args.device
         # if set to resume from checkpoints
         if args.resume is not None:
             # read the checkpoint path
