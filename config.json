@@ -6,14 +6,10 @@
         "type": "MnistModel",
         "args": {}
     },
-    "data_loader": {
-        "type": "MnistDataLoader",
+    "dataset": {
+        "type": "MnistDataset",
         "args":{
-            "data_dir": "data/",
-            "batch_size": 128,
-            "shuffle": true,
-            "validation_split": 0.1,
-            "num_workers": 2
+            "data_dir": "data/"
         }
     },
     "optimizer": {
@@ -36,15 +32,17 @@
         }
     },
     "trainer": {
-        "epochs": 100,
-
+        "num_epochs": 6,
         "save_dir": "saved/",
-        "save_period": 1,
-        "verbosity": 2,
-        
-        "monitor": "min val_loss",
-        "early_stop": 10,
-
-        "tensorboard": true
+        "train_dataloader_args": {
+           "batch_size": 128, 
+           "shuffle": true,
+           "num_workers": 2
+        },
+        "eval_dataloader_args": {
+           "batch_size": 128, 
+           "shuffle": false,
+           "num_workers": 1
+        }
     }
 }
