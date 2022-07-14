@@ -5,7 +5,7 @@
         "args": {}
     },
     "dataset": {
-        "type": "MnistDataset",
+        "type": "MnistTestDataset",
         "args":{
             "data_dir": "data/"
         }
