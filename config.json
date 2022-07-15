@@ -31,7 +31,7 @@
         }
     },
     "trainer": {
-        "num_epochs": 6,
+        "num_epochs": 20,
         "save_dir": "saved/",
         "train_dataloader_args": {
            "batch_size": 128, 
