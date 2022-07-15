@@ -37,8 +37,8 @@ def main(config):
         loss_func=criterion,
         optimizer=optimizer,
         callbacks=[
-            *DEFAULT_CALLBACKS,
             *metrics,
+            *DEFAULT_CALLBACKS,
             SaveBestModelCallback(save_path = config.save_dir / "best_model.pt")
         ]
         )

@@ -14,5 +14,4 @@ class accuracy(TrainerCallback):
 
     def on_eval_epoch_end(self, trainer, **kwargs):
         trainer.run_history.update_metric("accuracy", self.accuracy.compute().item())
-        trainer.print("accuracy: ", self.accuracy.compute().item())
         self.accuracy.reset()
