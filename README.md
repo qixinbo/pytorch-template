@@ -10,18 +10,18 @@ PyTorch deep learning project made easy and accelerated.
 
 <!-- code_chunk_output -->
 * [PyTorch Template](#pytorch-template-project)
-	* [Features](#features)
-	* [Folder Structure](#folder-structure)
-	* [Usage](#usage)
-		* [Config file format](#config-file-format)
-		* [Using config files](#using-config-files)
-		* [Resuming from checkpoints](#resuming-from-checkpoints)
+  * [Features](#features)
+  * [Folder Structure](#folder-structure)
+  * [Usage](#usage)
+    * [Config file format](#config-file-format)
+    * [Using config files](#using-config-files)
+    * [Resuming from checkpoints](#resuming-from-checkpoints)
     * [Multi-GPUs/TPU/fp16](#Distributed-Data-Parallel-and-Mixed-Precision-Training)
-	* [Customization](#customization)
-		* [Custom CLI options](#custom-cli-options)
+  * [Customization](#customization)
+    * [Custom CLI options](#custom-cli-options)
   * [Testing](#testing)
-	* [License](#license)
-	* [Acknowledgements](#acknowledgements)
+  * [License](#license)
+  * [Acknowledgements](#acknowledgements)
 
 <!-- /code_chunk_output -->
 
