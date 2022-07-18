@@ -1,6 +1,7 @@
 <p align="center">
   <img src="docs/logo.png" alt="pytorch template logo">
 </p>
+
 English | [简体中文](./README-CN.md)
 
 # PyTorch Template
@@ -18,6 +19,7 @@ PyTorch deep learning project made easy and accelerated.
     * [Multi-GPUs/TPU/fp16](#Distributed-Data-Parallel-and-Mixed-Precision-Training)
 	* [Customization](#customization)
 		* [Custom CLI options](#custom-cli-options)
+  * [Testing](#testing)
 	* [License](#license)
 	* [Acknowledgements](#acknowledgements)
 
@@ -192,7 +194,7 @@ for the learning rate option is `('optimizer', 'args', 'lr')` because `config['o
 `python train.py -c config.json --bs 256` runs training with options given in `config.json` except for the `batch size`
 which is increased to 256 by command line options.
 
-### Testing
+## Testing
 You can test trained model by running `test.py` passing path to the trained checkpoint by `--resume` argument.
 
 ## License
