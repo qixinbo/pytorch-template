@@ -18,8 +18,6 @@ PyTorch deep learning project made easy and accelerated.
     * [Multi-GPUs/TPU/fp16 ](#Distributed-Data-Parallel-and-Mixed-Precision-Training)
 	* [Customization](#customization)
 		* [Custom CLI options](#custom-cli-options)
-	* [Contribution](#contribution)
-	* [TODOs](#todos)
 	* [License](#license)
 	* [Acknowledgements](#acknowledgements)
 
@@ -31,9 +29,9 @@ PyTorch deep learning project made easy and accelerated.
 * Customizable command line options for more convenient parameter tuning.
 * Checkpoint saving and resuming.
 * Accelerate the process of training PyTorch models by providing a minimal, but extensible training loop:
-  ** A simple and contained, but easily customisable, training loop, which should work out of the box in straightforward cases; behaviour can be customised using inheritance and/or callbacks.
-  ** Handles device placement, mixed-precision, DeepSpeed integration, multi-GPU and distributed training with no code changes.
-  ** Uses pure PyTorch components, with no additional modifications or wrappers, and easily interoperates with other popular libraries such as timm, transformers and torchmetrics.
+  * A simple and contained, but easily customisable, training loop, which should work out of the box in straightforward cases; behaviour can be customised using inheritance and/or callbacks.
+  * Handles device placement, mixed-precision, DeepSpeed integration, multi-GPU and distributed training with no code changes.
+  * Uses pure PyTorch components, with no additional modifications or wrappers, and easily interoperates with other popular libraries such as timm, transformers and torchmetrics.
 
 ## Folder Structure
   ```
