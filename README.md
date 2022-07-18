@@ -1,4 +1,6 @@
-![logo](docs/logo.png)
+<p align="center">
+  <img src="docs/logo.png" alt="pytorch template logo">
+</p>
 # PyTorch Template Project
 PyTorch deep learning project made easy and accelerated.
 
