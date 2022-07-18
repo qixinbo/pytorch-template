@@ -1,21 +1,21 @@
 <p align="center">
   <img src="docs/logo.png" alt="pytorch template logo">
 </p>
+English | [简体中文](./README-CN.md)
 
-# PyTorch Template Project
+# PyTorch Template
 PyTorch deep learning project made easy and accelerated.
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
-
-* [PyTorch Template Project](#pytorch-template-project)
+* [PyTorch Template](#pytorch-template-project)
 	* [Features](#features)
 	* [Folder Structure](#folder-structure)
 	* [Usage](#usage)
 		* [Config file format](#config-file-format)
 		* [Using config files](#using-config-files)
 		* [Resuming from checkpoints](#resuming-from-checkpoints)
-    * [Multi-GPUs/TPU/fp16 ](#Distributed-Data-Parallel-and-Mixed-Precision-Training)
+    * [Multi-GPUs/TPU/fp16](#Distributed-Data-Parallel-and-Mixed-Precision-Training)
 	* [Customization](#customization)
 		* [Custom CLI options](#custom-cli-options)
 	* [License](#license)
