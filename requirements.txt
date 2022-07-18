@@ -3,5 +3,6 @@ torchvision
 accelerate
 torchmetrics
 numpy
+pandas
 tqdm
 tensorboard>=1.14

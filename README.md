@@ -1,5 +1,6 @@
+![logo](docs/logo.png)
 # PyTorch Template Project
-PyTorch deep learning project made easy.
+PyTorch deep learning project made easy and accelerated.
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
