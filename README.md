@@ -15,7 +15,7 @@ PyTorch deep learning project made easy and accelerated.
 		* [Config file format](#config-file-format)
 		* [Using config files](#using-config-files)
 		* [Resuming from checkpoints](#resuming-from-checkpoints)
-    * [Multi-GPUs/TPU/fp16 ](#Multi-GPUs/TPU/fp16 )
+    * [Multi-GPUs/TPU/fp16 ](#Multi-GPUs,-TPU,-fp16 )
 	* [Customization](#customization)
 		* [Custom CLI options](#custom-cli-options)
 	* [Contribution](#contribution)
@@ -62,7 +62,7 @@ PyTorch deep learning project made easy and accelerated.
   │   ├── models/ - trained models are saved here
   │   └── log/ - default logdir for tensorboard and logging output
   │
-  ├── pytorch_accelerated/ - trainers, currently just copy the pytorch_accelerated library here since its │   APIs are not stable now   
+  ├── pytorch_accelerated/ - trainers, currently just copy the pytorch_accelerated library here since its APIs are not stable now   
   │
   ├── logger/ - module for tensorboard visualization and logging
   │   ├── visualization.py
@@ -154,7 +154,7 @@ You can resume from a previously saved checkpoint by:
   python train.py --resume path/to/checkpoint
   ```
 
-### Multi-GPUs/TPU/fp16 
+### Multi-GPUs, TPU, fp16 
 If you want the powerful multi-GPUs/TPU/fp16 training mode, just use the CLI provided by [accelerate](https://github.com/huggingface/accelerate):
 ```sh
 accelerate config --config_file accelerate_config.yaml
