@@ -169,7 +169,10 @@ accelerate launch --config_file accelerate_config.yaml train.py -c config.json
 
 ### Project initialization
 Use the `new_project.py` script to make your new project directory with template files.
-`python new_project.py ../NewProject` then a new project folder named 'NewProject' will be made.
+```sh
+python new_project.py ../NewProject
+```
+then a new project folder named 'NewProject' will be made.
 This script will filter out unneccessary files like cache, git files or readme file. 
 
 ### Custom CLI options
