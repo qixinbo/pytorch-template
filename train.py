@@ -2,6 +2,8 @@ import argparse
 import collections
 import torch
 import numpy as np
+from functools import partial
+
 # import data_loader.data_loaders as module_data
 import dataset.datasets as module_data
 import model.loss as module_loss
@@ -9,7 +11,7 @@ import model.metric as module_metric
 import model.model as module_arch
 from parse_config import ConfigParser
 
-from pytorch_accelerated.trainer import Trainer, DEFAULT_CALLBACKS
+from pytorch_accelerated.trainer import Trainer, TrainerPlaceholderValues, DEFAULT_CALLBACKS
 from pytorch_accelerated.callbacks import SaveBestModelCallback
 
 def main(config):
@@ -30,7 +32,15 @@ def main(config):
     # build optimizer, learning rate scheduler. delete every lines containing lr_scheduler for disabling scheduler
     trainable_params = filter(lambda p: p.requires_grad, model.parameters())
     optimizer = config.init_obj('optimizer', torch.optim, trainable_params)
-    lr_scheduler = config.init_obj('lr_scheduler', torch.optim.lr_scheduler, optimizer)
+
+    # using torch built-in Scheduler
+    lr_scheduler_fn = getattr(torch.optim.lr_scheduler, config['lr_scheduler']['type'])
+
+    exp_lr_scheduler_fn = partial(
+        lr_scheduler_fn,
+        step_size = TrainerPlaceholderValues.NUM_UPDATE_STEPS_PER_EPOCH * config['lr_scheduler']['args']['step_size'],
+        gamma = config['lr_scheduler']['args']['gamma']
+        )
 
     trainer = Trainer(
         model,
@@ -38,8 +48,8 @@ def main(config):
         optimizer=optimizer,
         callbacks=[
             *metrics,
-            *DEFAULT_CALLBACKS,
-            SaveBestModelCallback(save_path = config.save_dir / "best_model.pt")
+            SaveBestModelCallback(save_path = config.save_dir / "best_model.pt"),
+            *DEFAULT_CALLBACKS
         ]
         )
 
@@ -48,7 +58,8 @@ def main(config):
         eval_dataset = eval_dataset,
         num_epochs = config['trainer']['num_epochs'],
         train_dataloader_kwargs = config['trainer']['train_dataloader_args'],
-        eval_dataloader_kwargs = config['trainer']['eval_dataloader_args']
+        eval_dataloader_kwargs = config['trainer']['eval_dataloader_args'],
+        create_scheduler_fn = exp_lr_scheduler_fn
         )
 
 

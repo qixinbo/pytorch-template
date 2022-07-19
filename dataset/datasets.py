@@ -8,8 +8,10 @@ trsfm = transforms.Compose([
 
 def MnistDataset(data_dir, validation_split):
     dataset = datasets.MNIST(data_dir, download=True, transform=trsfm)
+    num_trainset = int((1-validation_split)*len(dataset))
+    num_validset = len(dataset) - num_trainset
     return random_split(
-        dataset, [int((1-validation_split)*len(dataset)), int(validation_split*len(dataset))]
+        dataset, [num_trainset, num_validset]
     )
 
 def MnistTestDataset(data_dir):
