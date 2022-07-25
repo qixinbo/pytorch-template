@@ -48,7 +48,8 @@ def main(config):
         optimizer=optimizer,
         callbacks=[
             *metrics,
-            SaveBestModelCallback(save_path = config.save_dir / "best_model.pt"),
+            SaveBestModelCallback(save_path = config.save_dir / "best_model.pt",
+                watch_metric="accuracy", greater_is_better=True),
             *DEFAULT_CALLBACKS
         ]
         )
